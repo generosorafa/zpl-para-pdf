@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Converta arquivos ZPL ou TXT em PDF para impressão de etiquetas.">
+  <title>Conversor ZPL para PDF</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header><div class="wrap nav"><a class="brand" href="#top">ZPL → PDF</a><nav><a href="#como">Como funciona</a><a href="#faq">Dúvidas</a></nav></div></header>
+  <main id="top">
+    <section class="hero"><div class="wrap"><span class="tag">Ferramenta gratuita</span><h1>Converta etiquetas ZPL em PDF</h1><p>Envie arquivos <strong>.zpl</strong> ou <strong>.txt</strong>, ajuste o tamanho e baixe um PDF pronto para conferir e imprimir.</p></div></section>
+    <section class="wrap converter">
+      <form id="form">
+        <label class="drop" for="files"><strong>Escolha ou arraste seus arquivos</strong><span>Formatos aceitos: .zpl e .txt</span><input id="files" type="file" accept=".zpl,.txt,text/plain" multiple></label>
+        <div id="fileList" class="files"></div>
+        <label>Cole um ZPL manualmente<textarea id="zpl" rows="7" placeholder="^XA ... ^XZ"></textarea></label>
+        <div class="grid">
+          <label>Tamanho<select id="preset"><option value="4x6">10 × 15 cm</option><option value="4x4">10 × 10 cm</option><option value="4x3">10 × 7,5 cm</option><option value="3x2">7,5 × 5 cm</option><option value="custom">Personalizado</option></select></label>
+          <label>Largura (pol.)<input id="width" type="number" min="0.5" max="15" step="0.01" value="4"></label>
+          <label>Altura (pol.)<input id="height" type="number" min="0.5" max="15" step="0.01" value="6"></label>
+          <label>Resolução<select id="dpmm"><option value="6">152 DPI</option><option value="8" selected>203 DPI</option><option value="12">300 DPI</option><option value="24">600 DPI</option></select></label>
+          <label>Formato do PDF<select id="pageMode"><option value="label">Uma etiqueta por página</option><option value="a4">Organizar em folha A4</option></select></label>
+        </div>
+        <label class="check"><input id="consent" type="checkbox"> Entendo que o arquivo será processado por um serviço externo de renderização.</label>
+        <button id="submit" type="submit">Converter para PDF</button>
+        <p id="status" role="status"></p>
+      </form>
+    </section>
+    <section id="como" class="info"><div class="wrap columns"><article><h2>Como funciona</h2><p>O ZPL é enviado ao motor de renderização, que gera o PDF conforme o tamanho e a resolução escolhidos. O arquivo não é salvo permanentemente por esta aplicação.</p></article><article><h2>Antes de imprimir</h2><p>Confira nomes, endereços, códigos de barras e dimensões. Na janela de impressão, use escala de 100% ou tamanho real.</p></article><article><h2>Privacidade</h2><p>Etiquetas podem conter dados pessoais. Evite usar informações sigilosas e prefira arquivos fictícios em testes.</p></article></div></section>
+    <section id="faq" class="wrap faq"><h2>Perguntas frequentes</h2><details><summary>Posso enviar vários arquivos?</summary><p>Sim. Todos serão combinados na ordem selecionada.</p></details><details><summary>O PDF altera o conteúdo?</summary><p>Não. A ferramenta apenas renderiza os comandos existentes no ZPL.</p></details><details><summary>Por que o código de barras ficou ruim?</summary><p>Verifique o DPI escolhido e imprima sem redimensionamento.</p></details></section>
+  </main>
+  <footer><div class="wrap"><p>Ferramenta independente para conversão de etiquetas. Sem telefone, e-mail ou dados pessoais publicados.</p><p>Marcas citadas pertencem aos seus respectivos titulares.</p></div></footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
